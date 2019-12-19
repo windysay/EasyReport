@@ -1,0 +1,5 @@
+2019-12-19 11:58:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "EZRPT_MEMBER_PERMISSION" not found; SQL statement:
+select t1.*, t2.path
+        from ezrpt_member_permission t1
+        inner join ezrpt_member_module t2 ON t1.module_id = t2.id [42102-194]

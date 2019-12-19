@@ -15,7 +15,7 @@ RUN \
   useradd -ms /bin/bash $USER_NAME && \
   mkdir -p $APP_HOME
 
-ADD easyreport.jar ${APP_HOME}/easyreport.jar
+ADD easyreport-web.jar ${APP_HOME}/easyreport.jar
 RUN \
   chown $USER_NAME $APP_HOME/easyreport.jar && \
   bash -c 'touch ${APP_HOME}/easyreport.jar'
@@ -26,5 +26,7 @@ USER $USER_NAME
 WORKDIR $APP_HOME
 ENTRYPOINT ["java", "-jar", "easyreport.jar"]
 
+# Build as:
+# docker build -t easytoolsoft/easyreport:latest .
 # Run as:
-# docker run -idt -p 8701:8701 -e appPort=8701 easytoolsoft/easyreport:latest
+# docker run -idt -p 8701:8701 -e appPort=8701 -v /data/www/easyreport:/opt/poc-api/easyreport --name report easytoolsoft/easyreport:latest
